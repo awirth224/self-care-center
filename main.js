@@ -2,14 +2,15 @@
 submitButton = document.querySelector('button')
 printMessage = document.querySelector('.print')
 img = document.querySelector('img')
-//radioButtons = document.querySelectorAll('input')
-affirmationsButton = document.getElementById('affirm')
-mantrasButton = document.getElementById('mantra')
+radioButtons = document.querySelectorAll('input')
+affirmationsButton = document.radioButtons[0]
+mantrasButton = document.radioButtons[1]
 
 //eventListeners
 submitButton.addEventListener('click', displayMessage)
 
-//arrays
+//arrays & global var
+
 affirmations = [
 "I am successful",
 "I am confident",
@@ -71,11 +72,14 @@ mantras = [
 
 ]
 
-//functions
+var affirmation = affirmations[Math.floor(Math.random()* affirmations.length)]
+var mantra = mantras[Math.floor(Math.random()* mantras.length)]
 
+//functions
 function displayMessage() {
-  //if (radioButtons.value === "affirmation"){
+ 
     printMessage.innerText += ''
+     if (radioButtons.value === "affirmation"){
     for(var i = 0; i < affirmations.length; i++)
     printMessage.innerHTML = `${affirmations[i]}`
   // if (affirmationsButton.checked === true){
