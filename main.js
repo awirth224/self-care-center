@@ -4,7 +4,7 @@ printMessage = document.querySelector('.print')
 img = document.querySelector('img')
 //radioButtons = document.querySelectorAll('input')
 affirmationsButton = document.getElementById('affirm')
-mantrasButton = document.getElementById('mantras')
+mantrasButton = document.getElementById('mantra')
 
 //eventListeners
 submitButton.addEventListener('click', displayMessage)
@@ -74,21 +74,23 @@ mantras = [
 //functions
 
 function displayMessage() {
-  img.classList.add('hidden')
   //if (radioButtons.value === "affirmation"){
-  if (affirmationsButton.checked === true){
+    printMessage.innerText += ''
     for(var i = 0; i < affirmations.length; i++)
-    printMessage.innerHTML += `${affirmations[i]}`
-  }
-  //else if (radioButtons.value === "mantra"){
-  else if (mantrasButton.checked === true){
-    for(var i = 0; i < mantras.length; i++)
-    printMessage.innerHTML += `${mantras[i]}`
-  }
+    printMessage.innerHTML = `${affirmations[i]}`
+  // if (affirmationsButton.checked === true){
+  //   for(var i = 0; i < affirmations.length; i++)
+  //   printMessage.innerHTML += `${affirmations[i]}`
+  // }
+  // //else if (radioButtons.value === "mantra"){
+  // else if (mantrasButton.checked === true){
+  //   for(var i = 0; i < mantras.length; i++)
+  //   printMessage.innerHTML += `${mantras[i]}`
+  // }
 }
 
 function hideSvg() {
-
+  img.classList.add('hidden')
 }
 
 
