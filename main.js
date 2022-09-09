@@ -1,7 +1,11 @@
 //querySelectors
 submitButton = document.querySelector('button')
 printMessage = document.querySelector('.print')
-svg = document.getElementById('a')
+img = document.querySelector('img')
+//radioButtons = document.querySelectorAll('input')
+affirmationsButton = document.getElementById('affirm')
+mantrasButton = document.getElementById('mantras')
+
 //eventListeners
 submitButton.addEventListener('click', displayMessage)
 
@@ -70,11 +74,17 @@ mantras = [
 //functions
 
 function displayMessage() {
-  for(var i = 0; i < affirmations.length; i++)
-  printMessage.innerHTML += `${affirmations[i]}`
-
-  for(var i = 0; i < mantras.length; i++)
-  printMessage.innerHTML += `${mantras[i]}`
+  img.classList.add('hidden')
+  //if (radioButtons.value === "affirmation"){
+  if (affirmationsButton.checked === true){
+    for(var i = 0; i < affirmations.length; i++)
+    printMessage.innerHTML += `${affirmations[i]}`
+  }
+  //else if (radioButtons.value === "mantra"){
+  else if (mantrasButton.checked === true){
+    for(var i = 0; i < mantras.length; i++)
+    printMessage.innerHTML += `${mantras[i]}`
+  }
 }
 
 function hideSvg() {
