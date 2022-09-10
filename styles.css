@@ -144,6 +144,23 @@ span {
   font-family: 'Quicksand', sans-serif;
 }
 
+.clear-button-container {
+  align-content: flex-start;
+  display: flex;
+  justify-content: center;
+}
+
+.clear {
+  background-color: #134d71;
+  border-radius: 5px;
+  color:#ffffff;
+  font-family: 'Quicksand', sans-serif; 
+  flex-basis: 10%;
+  font-size: 14px;
+  height: 4vh;
+
+}
+
 /* #affirm {
   align-items: flex-start;
   flex-basis: 25%;
