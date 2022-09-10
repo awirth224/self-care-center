@@ -72,9 +72,6 @@ mantras = [
 
 ]
 
-var selectedButton
-//var affirmation = affirmations[getRandomIndex(affirmations)]
-//var mantra = mantras[getRandomIndex(mantras)]
 
 //functions
 function getRandomIndex(array) {
@@ -87,7 +84,7 @@ function checkRadioButtons() {
   for (var i = 0; i < radioButtons.length; i++) {
     if (radioButtons[i].checked) {
     selectedButton = radioButtons[i].value
-    break
+    return
     }
   }
 }
