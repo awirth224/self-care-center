@@ -3,8 +3,8 @@ submitButton = document.querySelector('button')
 printMessage = document.querySelector('.print')
 img = document.querySelector('img')
 radioButtons = document.querySelectorAll('input')
-affirmationsButton = document.radioButtons[0]
-mantrasButton = document.radioButtons[1]
+affirmationsButton = document.getElementById('affirm')
+mantrasButton = document.getElementById('mantra')
 
 //eventListeners
 submitButton.addEventListener('click', displayMessage)
@@ -72,25 +72,23 @@ mantras = [
 
 ]
 
-var affirmation = affirmations[Math.floor(Math.random()* affirmations.length)]
-var mantra = mantras[Math.floor(Math.random()* mantras.length)]
+var affirmation = affirmations[getRandomIndex(affirmations)]
+var mantra = mantras[getRandomIndex(mantras)]
 
 //functions
-function displayMessage() {
- 
+function getRandomIndex(array) {
+  return Math.floor(Math.random()* array.length)
+}
+
+function displayMessage(affirmation, mantra) {
     printMessage.innerText += ''
-     if (radioButtons.value === "affirmation"){
-    for(var i = 0; i < affirmations.length; i++)
-    printMessage.innerHTML = `${affirmations[i]}`
-  // if (affirmationsButton.checked === true){
-  //   for(var i = 0; i < affirmations.length; i++)
-  //   printMessage.innerHTML += `${affirmations[i]}`
-  // }
-  // //else if (radioButtons.value === "mantra"){
-  // else if (mantrasButton.checked === true){
-  //   for(var i = 0; i < mantras.length; i++)
-  //   printMessage.innerHTML += `${mantras[i]}`
-  // }
+    console.log(affirmationsButton)
+     if (affirmationsButton.checked === true){
+      printMessage.innerText += `${affirmation}`
+     }else if (mantrasButton.checked === true){
+      printMessage.innerText += `${mantra}`
+     }
+     hideSvg()
 }
 
 function hideSvg() {
