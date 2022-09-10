@@ -82,7 +82,7 @@ function getRandomIndex(array) {
 
 function displayMessage(affirmation, mantra) {
     printMessage.innerText += ''
-    console.log(affirmationsButton)
+    console.log(affirmation)
      if (affirmationsButton.checked === true){
       printMessage.innerText += `${affirmation}`
      }else if (mantrasButton.checked === true){
