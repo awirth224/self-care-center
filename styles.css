@@ -81,6 +81,7 @@ label {
 .radio-alignment {
   align-items: flex-end;
   justify-items: center;
+  width: 16vh;
 }
 
 .submit-container {
@@ -127,13 +128,20 @@ label {
   height: 20vh;
   justify-content: center;
   margin: 50px;
-  /* width: 80vw; */
 }
 
 img {
   flex-basis: auto;
   height: 10vh;
   width: auto;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+span {
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* #affirm {

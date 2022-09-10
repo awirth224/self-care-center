@@ -1,11 +1,48 @@
 //querySelectors
-submitButton = document.querySelector('button')
+submitButton = document.querySelector('.submit')
 printMessage = document.querySelector('.print')
-svg = document.getElementById('a')
-//eventListeners
+img = document.querySelector('img')
+radioButtons = document.querySelectorAll('input')
+affirmationsButton = document.getElementById('affirm')
+mantrasButton = document.getElementById('mantra')
+
+var selectedButton
+
 submitButton.addEventListener('click', displayMessage)
 
-//arrays
+//functions
+function getRandomIndex(array) {
+  var randomIndex = Math.floor(Math.random()* array.length)
+  var message = array[randomIndex]
+  return message
+}
+
+function checkRadioButtons() {
+  for (var i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+    selectedButton = radioButtons[i].value
+    return
+    }
+  }
+}
+
+function displayMessage() {
+    checkRadioButtons()
+    console.log(getRandomIndex(affirmations))
+     if (selectedButton === 'affirmation'){
+      printMessage.innerText = getRandomIndex(affirmations)
+     }else if (selectedButton === 'mantra'){
+      printMessage.innerText = getRandomIndex(mantras)
+     }
+     console.log(getRandomIndex(affirmations))
+     hideSvg()
+}
+
+function hideSvg() {
+  img.classList.add('hidden')
+}
+
+
 affirmations = [
 "I am successful",
 "I am confident",
@@ -67,18 +104,7 @@ mantras = [
 
 ]
 
-//functions
 
-function displayMessage() {
-  for(var i = 0; i < affirmations.length; i++)
-  printMessage.innerHTML += `${affirmations[i]}`
 
-  for(var i = 0; i < mantras.length; i++)
-  printMessage.innerHTML += `${mantras[i]}`
-}
-
-function hideSvg() {
-
-}
 
 
