@@ -137,3 +137,7 @@ img {
   height: 10vh;
   width: auto;
 }
+
+.hidden {
+  visibility: hidden;
+}
