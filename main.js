@@ -72,22 +72,35 @@ mantras = [
 
 ]
 
-var affirmation = affirmations[getRandomIndex(affirmations)]
-var mantra = mantras[getRandomIndex(mantras)]
+var selectedButton
+//var affirmation = affirmations[getRandomIndex(affirmations)]
+//var mantra = mantras[getRandomIndex(mantras)]
 
 //functions
 function getRandomIndex(array) {
-  return Math.floor(Math.random()* array.length)
+  var randomIndex = Math.floor(Math.random()* array.length)
+  var message = array[randomIndex]
+  return message
 }
 
-function displayMessage(affirmation, mantra) {
-    printMessage.innerText += ''
-    console.log(affirmation)
-     if (affirmationsButton.checked === true){
-      printMessage.innerText += `${affirmation}`
-     }else if (mantrasButton.checked === true){
-      printMessage.innerText += `${mantra}`
+function checkRadioButtons() {
+  for (var i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+    selectedButton = radioButtons[i].value
+    break
+    }
+  }
+}
+
+function displayMessage() {
+    checkRadioButtons()
+    console.log(getRandomIndex(affirmations))
+     if (selectedButton === 'affirmation'){
+      printMessage.innerHTML = getRandomIndex(affirmations)
+     }else if (selectedButton === 'mantra'){
+      printMessage.inneHTML = getRandomIndex(mantras)
      }
+     console.log(getRandomIndex(affirmations))
      hideSvg()
 }
 
