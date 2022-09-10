@@ -11,8 +11,9 @@ html {
   background-image:linear-gradient(#134d71, #78a7c6, #f7e4bf) ;
 }
 
-.title {
-  margin: 30px 300px 30px 300px;
+.h1-container {
+  display: flex;
+  justify-content: center;
 }
 
 .h1 {
@@ -127,13 +128,20 @@ label {
   height: 20vh;
   justify-content: center;
   margin: 50px;
-  /* width: 80vw; */
 }
 
 img {
   flex-basis: auto;
   height: 10vh;
   width: auto;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+span {
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* #affirm {
