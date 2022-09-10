@@ -5,10 +5,12 @@ img = document.querySelector('img')
 radioButtons = document.querySelectorAll('input')
 affirmationsButton = document.getElementById('affirm')
 mantrasButton = document.getElementById('mantra')
+clearButton = document.querySelector('.clear')
 
 var selectedButton
 
 submitButton.addEventListener('click', displayMessage)
+clearButton.addEventListener('click', clearMessage)
 
 //functions
 function getRandomIndex(array) {
@@ -40,6 +42,14 @@ function displayMessage() {
 
 function hideSvg() {
   img.classList.add('hidden')
+}
+
+function clearMessage() {
+  checkRadioButtons()
+  if (selectedButton === 'affirmation' || 'mantra'){
+    printMessage.innerText = ''
+  }
+  img.classList.remove('hidden')
 }
 
 
