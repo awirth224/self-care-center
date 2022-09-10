@@ -1,15 +1,47 @@
 //querySelectors
-submitButton = document.querySelector('button')
+submitButton = document.querySelector('.submit')
 printMessage = document.querySelector('.print')
 img = document.querySelector('img')
 radioButtons = document.querySelectorAll('input')
 affirmationsButton = document.getElementById('affirm')
 mantrasButton = document.getElementById('mantra')
 
-//eventListeners
+var selectedButton
+
 submitButton.addEventListener('click', displayMessage)
 
-//arrays & global var
+//functions
+function getRandomIndex(array) {
+  var randomIndex = Math.floor(Math.random()* array.length)
+  var message = array[randomIndex]
+  return message
+}
+
+function checkRadioButtons() {
+  for (var i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+    selectedButton = radioButtons[i].value
+    return
+    }
+  }
+}
+
+function displayMessage() {
+    checkRadioButtons()
+    console.log(getRandomIndex(affirmations))
+     if (selectedButton === 'affirmation'){
+      printMessage.innerText = getRandomIndex(affirmations)
+     }else if (selectedButton === 'mantra'){
+      printMessage.innerText = getRandomIndex(mantras)
+     }
+     console.log(getRandomIndex(affirmations))
+     hideSvg()
+}
+
+function hideSvg() {
+  img.classList.add('hidden')
+}
+
 
 affirmations = [
 "I am successful",
@@ -73,36 +105,6 @@ mantras = [
 ]
 
 
-//functions
-function getRandomIndex(array) {
-  var randomIndex = Math.floor(Math.random()* array.length)
-  var message = array[randomIndex]
-  return message
-}
 
-function checkRadioButtons() {
-  for (var i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].checked) {
-    selectedButton = radioButtons[i].value
-    return
-    }
-  }
-}
-
-function displayMessage() {
-    checkRadioButtons()
-    console.log(getRandomIndex(affirmations))
-     if (selectedButton === 'affirmation'){
-      printMessage.innerHTML = getRandomIndex(affirmations)
-     }else if (selectedButton === 'mantra'){
-      printMessage.inneHTML = getRandomIndex(mantras)
-     }
-     console.log(getRandomIndex(affirmations))
-     hideSvg()
-}
-
-function hideSvg() {
-  img.classList.add('hidden')
-}
 
 
