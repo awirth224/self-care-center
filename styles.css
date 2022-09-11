@@ -85,6 +85,7 @@ label {
 }
 
 .submit-container {
+  align-content: space-around;
   display: flex;
  
 }
@@ -96,8 +97,18 @@ label {
   flex-basis: 28%;
   font-size: 14px;
   height: 4vh;
-  justify-items: center;
+  margin-right: 20px;
+  /* justify-items: center; */
   /* width: 1vh; */
+}
+
+.add-message {
+  align-items: flex-end;
+  background-color: #134d71;
+  border-radius: 5px;
+  flex-basis: 28%;
+  font-size: 14px;
+  height: 4vh;
 }
 
 .all-buttons {
