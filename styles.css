@@ -161,6 +161,10 @@ span {
 
 }
 
+.opacity {
+  opacity: 30%
+}
+
 /* #affirm {
   align-items: flex-start;
   flex-basis: 25%;
