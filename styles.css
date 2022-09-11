@@ -85,6 +85,7 @@ label {
 }
 
 .submit-container {
+  align-content: space-around;
   display: flex;
  
 }
@@ -96,8 +97,18 @@ label {
   flex-basis: 28%;
   font-size: 14px;
   height: 4vh;
-  justify-items: center;
+  margin-right: 20px;
+  /* justify-items: center; */
   /* width: 1vh; */
+}
+
+.add-message {
+  align-items: flex-end;
+  background-color: #134d71;
+  border-radius: 5px;
+  flex-basis: 28%;
+  font-size: 14px;
+  height: 4vh;
 }
 
 .all-buttons {
@@ -113,26 +124,22 @@ label {
  
 }
 
-.bottom-container {
+.bottom-box-container {
   align-content: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-}
-
-.bottom-box {
-  align-items: center;
   background-color: #ffffff;
   border-radius: 10px;
-  display: flex;
   flex-basis: 70%;
   height: 20vh;
-  justify-content: center;
   margin: 50px;
 }
 
 img {
-  flex-basis: auto;
+  align-items: center;
   height: 10vh;
+  justify-items: center;
   width: auto;
 }
 
@@ -142,6 +149,27 @@ img {
 
 span {
   font-family: 'Quicksand', sans-serif;
+}
+
+.clear-button-container {
+  align-content: flex-start;
+  display: flex;
+  justify-content: center;
+}
+
+.clear {
+  background-color: #134d71;
+  border-radius: 5px;
+  color:#ffffff;
+  font-family: 'Quicksand', sans-serif; 
+  flex-basis: 10%;
+  font-size: 14px;
+  height: 4vh;
+
+}
+
+.opacity {
+  opacity: 30%
 }
 
 /* #affirm {

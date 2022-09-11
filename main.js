@@ -5,10 +5,19 @@ img = document.querySelector('img')
 radioButtons = document.querySelectorAll('input')
 affirmationsButton = document.getElementById('affirm')
 mantrasButton = document.getElementById('mantra')
+clearButton = document.getElementById('clear-button')
+addMessageButton = document.querySelector('.add-message')
+userSubmitButton = document.querySelector('.user-submit')
+bottomBox = document.querySelector('.bottom-box-container')
 
 var selectedButton
 
+window.addEventListener('load', disableClearButton)
 submitButton.addEventListener('click', displayMessage)
+clearButton.addEventListener('click', clearMessage)
+addMessageButton.addEventListener('click', displayForm)
+userSubmitButton.addEventListener('click', displayUserMessage)
+
 
 //functions
 function getRandomIndex(array) {
@@ -28,13 +37,15 @@ function checkRadioButtons() {
 
 function displayMessage() {
     checkRadioButtons()
-    console.log(getRandomIndex(affirmations))
      if (selectedButton === 'affirmation'){
       printMessage.innerText = getRandomIndex(affirmations)
-     }else if (selectedButton === 'mantra'){
+      enableClearButton()
+     } else if (selectedButton === 'mantra'){
       printMessage.innerText = getRandomIndex(mantras)
+      enableClearButton()
+     }else{
+      return
      }
-     console.log(getRandomIndex(affirmations))
      hideSvg()
 }
 
@@ -42,6 +53,43 @@ function hideSvg() {
   img.classList.add('hidden')
 }
 
+function clearMessage() {
+  checkRadioButtons()
+  printMessage.innerText = ''
+  img.classList.remove('hidden')
+}
+
+function enableClearButton() {
+  document.getElementById('clear-button').disabled = false
+  clearButton.classList.remove('opacity')
+}
+
+function disableClearButton() {
+ document.getElementById('clear-button').disabled = true
+ clearButton.classList.add('opacity')
+}
+
+function enableForm() {
+  hideSvg()
+  bottomBox.innerHTML = `
+  <form class="bottom">
+  <label class="bottom"> Enter Your Own Message Here:</label>
+  <input type="text" id="userInput" class="bottom">
+  <button class="user-submit bottom">Submit</button>
+  </form>
+  `
+}
+
+function displayUserMessage() {
+  
+}
+
+
+{/* <form class="hidden bottom">
+<label class="hidden bottom"> Enter Your Own Message Here:</label>
+<input type="text" id="userInput" class="hidden bottom">
+<button class="user-submit hidden bottom">Submit</button>
+</form> */}
 
 affirmations = [
 "I am successful",
