@@ -5,10 +5,11 @@ img = document.querySelector('img')
 radioButtons = document.querySelectorAll('input')
 affirmationsButton = document.getElementById('affirm')
 mantrasButton = document.getElementById('mantra')
-clearButton = document.querySelector('.clear')
+clearButton = document.getElementById('clear-button')
 
 var selectedButton
 
+window.addEventListener('load', disableClearButton)
 submitButton.addEventListener('click', displayMessage)
 clearButton.addEventListener('click', clearMessage)
 
@@ -30,13 +31,15 @@ function checkRadioButtons() {
 
 function displayMessage() {
     checkRadioButtons()
-    console.log(getRandomIndex(affirmations))
      if (selectedButton === 'affirmation'){
       printMessage.innerText = getRandomIndex(affirmations)
-     }else if (selectedButton === 'mantra'){
+      enableClearButton()
+     } else if (selectedButton === 'mantra'){
       printMessage.innerText = getRandomIndex(mantras)
+      enableClearButton()
+     }else{
+      return
      }
-     console.log(getRandomIndex(affirmations))
      hideSvg()
 }
 
@@ -46,10 +49,18 @@ function hideSvg() {
 
 function clearMessage() {
   checkRadioButtons()
-  if (selectedButton === 'affirmation' || 'mantra'){
-    printMessage.innerText = ''
-  }
+  printMessage.innerText = ''
   img.classList.remove('hidden')
+}
+
+function enableClearButton() {
+  document.getElementById('clear-button').disabled = false
+  clearButton.classList.remove('opacity')
+}
+
+function disableClearButton() {
+ document.getElementById('clear-button').disabled = true
+ clearButton.classList.add('opacity')
 }
 
 
