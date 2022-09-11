@@ -51,6 +51,7 @@ function clearMessage() {
   checkRadioButtons()
   printMessage.innerText = ''
   img.classList.remove('hidden')
+  disableClearButton()
 }
 
 function enableClearButton() {
